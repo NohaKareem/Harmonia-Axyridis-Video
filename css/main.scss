@@ -1,0 +1,75 @@
+$paleParchment: #FDFDEC;
+$chlorophyllGreen: #04461A; //~
+$inkyJetChracoal: #10061A;
+
+
+.hidden {
+	display: none;
+}
+
+body {
+    background-color: $paleParchment;
+    font-family: 'Playfair Display SC', serif;
+    color: $inkyJetChracoal;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3.3rem;
+}
+
+video {
+    // max-width: 100%;
+    border-radius: 50%;
+    width: 80vh;//800px~
+    height: 80vh;//800px~
+    position: relative;
+    top: -10vh; //-100px~
+    // box-shadow: 0px 0px 10px transparentize($inkyJetChracoal, 0.5);
+}
+
+.player { //~
+    position: relative;
+}
+
+.controls { 
+    position: absolute;
+}
+
+.buttonGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 20%;
+}
+
+button {
+    font-size: 1.7vw;
+    border-radius: 50%;
+    width: 4vw;//50px~
+    height: 4vw;//50px~
+    border: none;
+    color: $inkyJetChracoal;
+    top: -34vh;
+    left: 60vw;
+    font-family: 'Playfair Display SC', serif;
+    position: relative;
+    background-color: $paleParchment;
+    box-shadow: 0px 0px 10px transparentize($paleParchment, 0.5);
+}
+
+button:hover {
+    color: $paleParchment;
+    background-color: $inkyJetChracoal;
+    cursor: pointer;
+}
+
+.play {
+
+}

@@ -1,0 +1,66 @@
+.hidden {
+  display: none;
+}
+
+body {
+  background-color: #FDFDEC;
+  font-family: "Playfair Display SC", serif;
+  color: #10061A;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3.3rem;
+}
+
+video {
+  border-radius: 50%;
+  width: 80vh;
+  height: 80vh;
+  position: relative;
+  top: -10vh;
+}
+
+.player {
+  position: relative;
+}
+
+.controls {
+  position: absolute;
+}
+
+.buttonGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 20%;
+}
+
+button {
+  font-size: 1.7vw;
+  border-radius: 50%;
+  width: 4vw;
+  height: 4vw;
+  border: none;
+  color: #10061A;
+  top: -34vh;
+  left: 60vw;
+  font-family: "Playfair Display SC", serif;
+  position: relative;
+  background-color: #FDFDEC;
+  box-shadow: 0px 0px 10px rgba(253, 253, 236, 0.5);
+}
+
+button:hover {
+  color: #FDFDEC;
+  background-color: #10061A;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=main.css.map */
