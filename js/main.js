@@ -1,24 +1,47 @@
 (_ => {
 	"use strict";
 
-	const ctrl = document.querySelector('.controls');
-	const vid = document.querySelector('video');
-	const playBtn = document.querySelector('.play');
+	const VID = document.querySelector('video');
+	const PLAY_BTN = document.querySelector('.play');
+	const SPEED_BTN = document.querySelector('.speed');
+	const STOP_BTN = document.querySelector('.stop');
 	const PLAY_FA = `<i class="fa fa-play" aria-hidden="true"></i>`;
 	const PAUSE_FA = `<i class="fa fa-pause" aria-hidden="true"></i>`;
-	
-	vid.removeAttribute('controls');
-	// controls.style.visibility = 'visible';
+	let speed = 1;
 
-	playBtn.addEventListener('click', _ => {
-		if(vid.paused) {
-			playBtn.innerHTML = PAUSE_FA;
-			vid.play();
+	VID.removeAttribute('controls');
+
+	let updateButton = (btn, html) => { btn.innerHTML = html; }
+
+	// toggle play pause 
+	PLAY_BTN.addEventListener('click', _ => {
+		if(VID.paused) {
+			updateButton(PLAY_BTN, PAUSE_FA);
+			VID.play();
 		} else {
-			playBtn.innerHTML = PLAY_FA;
-			vid.pause();
+			updateButton(PLAY_BTN, PLAY_FA);
+			VID.pause();
 		}
 	});
 
+	// modify speed
+	SPEED_BTN.addEventListener('click', _ => {
+		speed = (speed + 0.25) % 2;
+		speed = speed > 0 ? speed : 2;
+		SPEED_BTN.innerHTML = `${speed}X`;
+		VID.playbackRate = speed;
+	}); 
+
+	// stop video event handler
+	let stopVid = _ => {
+		VID.pause();
+		VID.currentTime = 0; 
+		updateButton(PLAY_BTN, PLAY_FA);
+	}
+
+	// stop on click, or auto-stop on complete
+	STOP_BTN.addEventListener('click', stopVid);
+	VID.addEventListener('ended', stopVid);
+	
 })();
 
