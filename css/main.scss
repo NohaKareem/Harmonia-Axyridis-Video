@@ -41,6 +41,9 @@ video {
 
 .controls { 
     position: absolute;
+
+    .controlsRow { //~
+    }
 }
 
 .buttonGrid {
@@ -68,8 +71,4 @@ button:hover {
     color: $paleParchment;
     background-color: $inkyJetChracoal;
     cursor: pointer;
-}
-
-.play {
-
 }

@@ -5,13 +5,25 @@
 	const PLAY_BTN = document.querySelector('.play');
 	const SPEED_BTN = document.querySelector('.speed');
 	const STOP_BTN = document.querySelector('.stop');
+	const SCRUBBER = document.querySelector('.scrubberCon div');
+	const TIME_LAPSED = document.querySelector('.scrubberCon span');
 	const PLAY_FA = `<i class="fa fa-play" aria-hidden="true"></i>`;
 	const PAUSE_FA = `<i class="fa fa-pause" aria-hidden="true"></i>`;
 	let speed = 1;
 
 	VID.removeAttribute('controls');
 
+	// update button display
 	let updateButton = (btn, html) => { btn.innerHTML = html; }
+	
+	// pad input with leading zero
+	let padZeros = num => { return `${num}`.padStart(2, '0'); }
+
+	let updateScrubber = _ => {
+		let minutes = Math.floor(VID.currentTime / 60);
+		let seconds = Math.floor(VID.currentTime - minutes * 60);
+		TIME_LAPSED.innerHTML = `${padZeros(minutes)}:${padZeros(seconds)}`;
+	}
 
 	// toggle play pause 
 	PLAY_BTN.addEventListener('click', _ => {
@@ -42,6 +54,8 @@
 	// stop on click, or auto-stop on complete
 	STOP_BTN.addEventListener('click', stopVid);
 	VID.addEventListener('ended', stopVid);
-	
+
+	// update scrubber
+	VID.addEventListener('timeupdate', updateScrubber);
 })();
 
