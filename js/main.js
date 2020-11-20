@@ -8,6 +8,7 @@
 	const SCRUBBER_CON = document.querySelector('.scrubberCon');
 	const SCRUBBER = document.querySelector('.scrubberCon div');//~
 	const SCRUB_SLIDER = document.querySelector('.scrubSlider');
+	const SCRUB_MAX = SCRUB_SLIDER.max;
 	const TIME_LAPSED = document.querySelector('.scrubberCon span');
 	const PLAY_FA = `<i class="fa fa-play" aria-hidden="true"></i>`;
 	const PAUSE_FA = `<i class="fa fa-pause" aria-hidden="true"></i>`;
@@ -61,18 +62,18 @@
 	STOP_BTN.addEventListener('click', stopVid);
 	VID.addEventListener('ended', stopVid);
 
-	// update scrubber ~
+	// update scrubber time and position~
 	VID.addEventListener('timeupdate', e => {
+		// SCRUB_SLIDER.value = e.currentTarget.max * VID.currentTime / VID.duration;
+		SCRUB_SLIDER.value = (SCRUB_MAX * VID.currentTime) / VID.duration;
 		let minutes = Math.floor(VID.currentTime / 60);
 		let seconds = Math.floor(VID.currentTime - minutes * 60);
 		TIME_LAPSED.innerHTML = `${padZeros(minutes)}:${padZeros(seconds)}`;
-
-		SCRUB_SLIDER.value = e.currentTarget.max * VID.currentTime / VID.duration;
 	});
 
 	// update scrub slider on input 
 	SCRUB_SLIDER.addEventListener('input', e => {
-		VID.currentTime = e.currentTarget.value * VID.duration / e.currentTarget.max;
+		VID.currentTime = e.currentTarget.value * VID.duration / SCRUB_MAX;
 	});
 })();
 
