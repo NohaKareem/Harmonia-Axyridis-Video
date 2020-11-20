@@ -1,7 +1,7 @@
 $paleParchment: #FDFDEC;
-$chlorophyllGreen: #04461A; //~
+$chlorophyllGreen: #04461A;
 $inkyJetChracoal: #10061A;
-$buttonRad: 40px;//3vw;
+$buttonRad: 40px;
 $vidWid: 750px;
 $vidHt: 500px; 
 $buttonFontSize: 15px;
@@ -36,16 +36,11 @@ video {
     border-radius: 20% 20% 40% 40%;
     width: $vidWid;
     height: $vidHt;
-    // position: relative;
     margin-top: 5%;
     box-shadow: 0px 0px 50px transparentize($inkyJetChracoal, 0.2);
 }
 
-.player { //~
-    position: relative;
-}
-
-.controlsRow { //~
+.controlsRow {
     position: absolute;
 }
 
@@ -55,7 +50,6 @@ video {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     column-gap: 20%;
     text-align: center;
-    // margin-top: -15vh;
     margin-top: $vidHt * -0.2;
 }
 
@@ -66,26 +60,19 @@ button {
     height: $buttonRad;
     border: none;
     color: $paleParchment;
-    // color: $inkyJetChracoal;
-    // margin-top: $vidHt * 0.27;
     margin-top: $vidHt * .1;
     left: $vidWid / 2.5;
     font-family: 'Playfair Display SC', serif;
     position: relative;
     background-color: rgba(255, 255, 255, 0);
-    // background-color: $paleParchment;
-    // box-shadow: 0px 0px 10px transparentize($paleParchment, 0.5);//~
-    box-shadow:
-        -3px -3px 13px 0.5px lighten($chlorophyllGreen, 0.5),
+    box-shadow: -3px -3px 13px 0.5px lighten($chlorophyllGreen, 0.5),
         3px 3px 3px 0.5px transparentize($inkyJetChracoal, 0.5);  
 }
 
 button:hover {
     color: $paleParchment;
-    // background-color: $inkyJetChracoal;
     cursor: pointer;
-    box-shadow:
-        inset -3px -3px 10px 0.5px lighten($chlorophyllGreen, 0.5),
+    box-shadow: inset -3px -3px 10px 0.5px lighten($chlorophyllGreen, 0.5),
         inset 3px 3px 10px 0.5px transparentize($inkyJetChracoal, 0.9);  
 }
 

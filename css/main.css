@@ -32,10 +32,6 @@ video {
   box-shadow: 0px 0px 50px rgba(16, 6, 26, 0.8);
 }
 
-.player {
-  position: relative;
-}
-
 .controlsRow {
   position: absolute;
 }
