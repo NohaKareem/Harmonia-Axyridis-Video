@@ -79,10 +79,45 @@ button.speed {
 }
 .scrubberCon input[type=range] {
   width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: 2.5px;
+  outline: none;
+  position: relative;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0);
+}
+.scrubberCon input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 13.3333333333px;
+  height: 13.3333333333px;
+  background-color: #FDFDEC;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 1s ease-out;
+}
+.scrubberCon input[type=range]::-webkit-slider-thumb:hover {
+  box-shadow: inset -3px -3px 10px 0.5px #04481b, inset 3px 3px 10px 0.5px rgba(16, 6, 26, 0.1);
+}
+.scrubberCon .progress {
+  position: absolute;
+  z-index: 1;
+  width: 75.5%;
+  height: 2.5px;
+  left: 112.5px;
+  top: 2px;
+  background-color: #04481b;
+  overflow: hidden;
+}
+.scrubberCon .progress .seen {
+  display: block;
+  width: 0%;
+  height: 100%;
+  background-color: #FDFDEC;
 }
 .scrubberCon .scrubberTime {
   color: #FDFDEC;
-  text-shadow: 0px 0px 1px #FDFDEC;
+  margin-top: -5px;
 }
 
 .swapVid {

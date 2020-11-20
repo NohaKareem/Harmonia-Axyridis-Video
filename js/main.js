@@ -6,6 +6,7 @@
 	const SPEED_BTN = document.querySelector('.speed');
 	const STOP_BTN = document.querySelector('.stop');
 	const SCRUB_SLIDER = document.querySelector('.scrubSlider');
+	const SCRUB_PROGRESS = document.querySelector('.seen');
 	const SCRUB_MAX = SCRUB_SLIDER.max;
 	const SWAP_VID = document.querySelector('.swapVid p');
 	const TIME_LAPSED = document.querySelector('.scrubberCon span');
@@ -53,18 +54,26 @@
 	STOP_BTN.addEventListener('click', stopVid);
 	VID.addEventListener('ended', stopVid);
 
+	// get scrub value
+	let getScrubValue = _ => { return (SCRUB_MAX * VID.currentTime) / VID.duration; }
+
+	// update scrub progress
+	let updateScrubProgress = _ =>  { SCRUB_PROGRESS.style.width = `${getScrubValue()}%`; }
+
 	// update scrubber time and position
 	VID.addEventListener('timeupdate', e => {
-		SCRUB_SLIDER.value = (SCRUB_MAX * VID.currentTime) / VID.duration;
+		SCRUB_SLIDER.value = getScrubValue();
+		updateScrubProgress();
 		
 		let minutes = Math.floor(VID.currentTime / 60);
 		let seconds = Math.floor(VID.currentTime - minutes * 60);
 		TIME_LAPSED.innerHTML = `${padZeros(minutes)}:${padZeros(seconds)}`;
 	});
-
+	
 	// update scrub slider on input 
 	SCRUB_SLIDER.addEventListener('input', e => {
 		VID.currentTime = e.currentTarget.value * VID.duration / SCRUB_MAX;
+		updateScrubProgress();
 	});
 
 	// swap vid
@@ -77,7 +86,6 @@
 		// update video
 		VID.src = currMenu == VIEW_RENDER_TXT ? "video/render.webm" : "video/vid.webm";
 		// let currVid = currMenu == VIEW_RENDER_TXT ? 'render' : 'vid'; 
-		// console.log(currVid);//~
 		// VID.innerHTML = `<video controls poster="images/poster.jpg">
 		// 					<source src="video/${currVid}.webm" type="video/webm">
 		// 					<source src="video/${currVid}.mp4" type="video/mp4">
@@ -87,6 +95,7 @@
 		// stop video
 		stopVid();
 		SCRUB_SLIDER.value = 0;
+		updateScrubProgress();
 
 		// play video
 		VID.play();

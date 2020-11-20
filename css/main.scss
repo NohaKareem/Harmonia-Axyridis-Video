@@ -4,6 +4,7 @@ $inkyJetChracoal: #10061A;
 $buttonRad: 40px;
 $vidWid: 750px;
 $vidHt: 500px; 
+$rangeHt: $vidHt * .005;
 $buttonFontSize: 15px;
 
 .hidden {
@@ -89,11 +90,56 @@ button.speed {
     
     input[type=range] {
         width: 100%;
+
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        height: $rangeHt;
+        outline: none;
+
+        position: relative;
+        z-index: 2;
+        // background-color: $paleParchment;  
+        background-color: rgba(255, 255, 255, 0);  
+    }
+
+    // chrome range slider
+    input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: $buttonRad / 3;
+        height: $buttonRad / 3;
+        background-color: $paleParchment;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 1s ease-out;
+    }
+
+    input[type=range]::-webkit-slider-thumb:hover {
+        box-shadow: inset -3px -3px 10px 0.5px lighten($chlorophyllGreen, 0.5),
+            inset 3px 3px 10px 0.5px transparentize($inkyJetChracoal, 0.9);  
+    }
+
+    // video progress
+    .progress {
+        position: absolute;
+        z-index: 1;
+        width: 75.5%;
+        height: $rangeHt;
+        left: $vidWid * .15;
+        top: 2px;
+        background-color: lighten($chlorophyllGreen, 0.5);
+        overflow: hidden;
+
+        .seen {
+            display: block;
+            width: 0%;
+            height: 100%;
+            background-color: $paleParchment;
+        }
     }
 
     .scrubberTime {
         color: $paleParchment;
-        text-shadow: 0px 0px 1px $paleParchment;
+        margin-top: -5px;
     }
 }
 
