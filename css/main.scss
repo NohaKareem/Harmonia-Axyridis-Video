@@ -1,9 +1,10 @@
 $paleParchment: #FDFDEC;
 $chlorophyllGreen: #04461A; //~
 $inkyJetChracoal: #10061A;
-$buttonRad: 3vw;
+$buttonRad: 40px;//3vw;
 $vidWid: 700px;
 $vidHt: 450px; 
+$buttonFontSize: 15px;
 
 .hidden {
 	display: none;
@@ -65,26 +66,23 @@ video {
 }
 
 button {
-    font-size: 1.3vw; //1.7~
+    font-size: $buttonFontSize;//1.3vw; //1.7~
     border-radius: 50%;
-    width: $buttonRad;//50px~
+    width: $buttonRad ;//50px~
     height: $buttonRad;//50px~
     border: none;
     color: $inkyJetChracoal;
     left: $vidWid / 2.5;
-    // top: -10.5vh;
-    // left: 10vw;
-    // top: -34vh;
-    // left: 60vw;
     font-family: 'Playfair Display SC', serif;
     position: relative;
     background-color: $paleParchment;
     box-shadow: 0px 0px 10px transparentize($paleParchment, 0.5);
 }
 
-// .controlsRow {
-//     grid-column: 1 / 4;
-// }
+button.speed {
+    overflow-wrap: break-word;
+    line-height: $buttonFontSize;
+}
 
 .scrubberCon {
     width: $vidWid * .7;
