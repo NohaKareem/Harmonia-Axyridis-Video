@@ -7,6 +7,11 @@ $vidHt: 500px;
 $rangeHt: $vidHt * .005;
 $buttonFontSize: 15px;
 
+@mixin insetShadow {
+    box-shadow: inset -3px -3px 10px 0.5px lighten($chlorophyllGreen, 0.5),
+        inset 3px 3px 10px 0.5px transparentize($inkyJetChracoal, 0.9);  
+}
+
 .hidden {
 	display: none;
 }
@@ -73,8 +78,7 @@ button {
 button:hover {
     color: $paleParchment;
     cursor: pointer;
-    box-shadow: inset -3px -3px 10px 0.5px lighten($chlorophyllGreen, 0.5),
-        inset 3px 3px 10px 0.5px transparentize($inkyJetChracoal, 0.9);  
+    @include insetShadow();
 }
 
 button.speed {
@@ -114,8 +118,7 @@ button.speed {
     }
 
     input[type=range]::-webkit-slider-thumb:hover {
-        box-shadow: inset -3px -3px 10px 0.5px lighten($chlorophyllGreen, 0.5),
-            inset 3px 3px 10px 0.5px transparentize($inkyJetChracoal, 0.9);  
+        @include insetShadow;
     }
 
     // video progress
