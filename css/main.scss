@@ -154,3 +154,12 @@ button.speed {
     cursor: pointer;
     text-decoration: underline;
 }
+
+.player {position: relative;}
+
+img {
+    width: $vidWid / 2;
+    position: absolute;
+    margin-left: -123%;
+    transform: rotate(-15deg);
+}

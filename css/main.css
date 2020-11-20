@@ -129,4 +129,15 @@ button.speed {
   text-decoration: underline;
 }
 
+.player {
+  position: relative;
+}
+
+img {
+  width: 375px;
+  position: absolute;
+  margin-left: -123%;
+  transform: rotate(-15deg);
+}
+
 /*# sourceMappingURL=main.css.map */
