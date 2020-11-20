@@ -2,8 +2,8 @@ $paleParchment: #FDFDEC;
 $chlorophyllGreen: #04461A; //~
 $inkyJetChracoal: #10061A;
 $buttonRad: 40px;//3vw;
-$vidWid: 700px;
-$vidHt: 450px; 
+$vidWid: 750px;
+$vidHt: 500px; 
 $buttonFontSize: 15px;
 
 .hidden {
@@ -26,57 +26,67 @@ main {
 
 h1 {
     margin-top: 5%;
+    margin-bottom: 2.5%;
     text-align: center;
     font-size: 3.3rem;
 }
 
 video {
-    // max-width: 100%;
     background-color: darken($chlorophyllGreen, 10);
     border-radius: 20% 20% 40% 40%;
-    width: $vidWid;//30vw;//800px~//80vh//40
-    height: $vidHt;//15vw;//800px~
-    position: relative;
+    width: $vidWid;
+    height: $vidHt;
+    // position: relative;
     margin-top: 5%;
-    // top: -10vh; //-100px~
-    box-shadow: 0px 0px 10px transparentize($inkyJetChracoal, 0.5);
+    box-shadow: 0px 0px 50px transparentize($inkyJetChracoal, 0.2);
 }
 
 .player { //~
     position: relative;
 }
 
-// .controls { 
-    // position: absolute;
-    .controlsRow { //~
-        position: absolute;
-        // background-color: red; //~
-    }
-// }
+.controlsRow { //~
+    position: absolute;
+}
 
-// .buttonGrid {
 .controls {
     position: absolute;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     column-gap: 20%;
     text-align: center;
-    margin-top: -15vh;
-    // left: 12vw; //~11vw
+    // margin-top: -15vh;
+    margin-top: $vidHt * -0.2;
 }
 
 button {
-    font-size: $buttonFontSize;//1.3vw; //1.7~
+    font-size: $buttonFontSize;
     border-radius: 50%;
-    width: $buttonRad ;//50px~
-    height: $buttonRad;//50px~
+    width: $buttonRad;
+    height: $buttonRad;
     border: none;
-    color: $inkyJetChracoal;
+    color: $paleParchment;
+    // color: $inkyJetChracoal;
+    // margin-top: $vidHt * 0.27;
+    margin-top: $vidHt * .07;
     left: $vidWid / 2.5;
     font-family: 'Playfair Display SC', serif;
     position: relative;
-    background-color: $paleParchment;
-    box-shadow: 0px 0px 10px transparentize($paleParchment, 0.5);
+    background-color: rgba(255, 255, 255, 0);
+    // background-color: $paleParchment;
+    // box-shadow: 0px 0px 10px transparentize($paleParchment, 0.5);//~
+    box-shadow:
+        -3px -3px 13px 0.5px lighten($chlorophyllGreen, 0.5),
+        3px 3px 3px 0.5px transparentize($inkyJetChracoal, 0.5);  
+}
+
+button:hover {
+    color: $paleParchment;
+    // background-color: $inkyJetChracoal;
+    cursor: pointer;
+    box-shadow:
+        inset -3px -3px 10px 0.5px lighten($chlorophyllGreen, 0.5),
+        inset 3px 3px 10px 0.5px transparentize($inkyJetChracoal, 0.9);  
 }
 
 button.speed {
@@ -87,8 +97,11 @@ button.speed {
 .scrubberCon {
     width: $vidWid * .7;
     margin-left: $vidWid * .15;
-    margin-top: - $vidHt * .08;
+    // margin-top: - $vidHt * .08;
     border-radius: 5%;
+    // margin-top: -$vidHt + $vidHt * 0.3;// / -1.9;
+    // margin-top: -55%;
+    display: flex;
     
     input[type=range] {
         width: 100%;
@@ -98,10 +111,4 @@ button.speed {
         color: $paleParchment;
         text-shadow: 0px 0px 1px $paleParchment;
     }
-}
-
-button:hover {
-    color: $paleParchment;
-    background-color: $inkyJetChracoal;
-    cursor: pointer;
 }

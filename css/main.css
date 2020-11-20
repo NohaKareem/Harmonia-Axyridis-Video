@@ -18,6 +18,7 @@ main {
 
 h1 {
   margin-top: 5%;
+  margin-bottom: 2.5%;
   text-align: center;
   font-size: 3.3rem;
 }
@@ -25,11 +26,10 @@ h1 {
 video {
   background-color: #011608;
   border-radius: 20% 20% 40% 40%;
-  width: 700px;
-  height: 450px;
-  position: relative;
+  width: 750px;
+  height: 500px;
   margin-top: 5%;
-  box-shadow: 0px 0px 10px rgba(16, 6, 26, 0.5);
+  box-shadow: 0px 0px 50px rgba(16, 6, 26, 0.8);
 }
 
 .player {
@@ -46,7 +46,7 @@ video {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   column-gap: 20%;
   text-align: center;
-  margin-top: -15vh;
+  margin-top: -100px;
 }
 
 button {
@@ -55,12 +55,19 @@ button {
   width: 40px;
   height: 40px;
   border: none;
-  color: #10061A;
-  left: 280px;
+  color: #FDFDEC;
+  margin-top: 35px;
+  left: 300px;
   font-family: "Playfair Display SC", serif;
   position: relative;
-  background-color: #FDFDEC;
-  box-shadow: 0px 0px 10px rgba(253, 253, 236, 0.5);
+  background-color: rgba(255, 255, 255, 0);
+  box-shadow: -3px -3px 13px 0.5px #04481b, 3px 3px 3px 0.5px rgba(16, 6, 26, 0.5);
+}
+
+button:hover {
+  color: #FDFDEC;
+  cursor: pointer;
+  box-shadow: inset -3px -3px 10px 0.5px #04481b, inset 3px 3px 10px 0.5px rgba(16, 6, 26, 0.1);
 }
 
 button.speed {
@@ -69,10 +76,10 @@ button.speed {
 }
 
 .scrubberCon {
-  width: 490px;
-  margin-left: 105px;
-  margin-top: -36px;
+  width: 525px;
+  margin-left: 112.5px;
   border-radius: 5%;
+  display: flex;
 }
 .scrubberCon input[type=range] {
   width: 100%;
@@ -80,12 +87,6 @@ button.speed {
 .scrubberCon .scrubberTime {
   color: #FDFDEC;
   text-shadow: 0px 0px 1px #FDFDEC;
-}
-
-button:hover {
-  color: #FDFDEC;
-  background-color: #10061A;
-  cursor: pointer;
 }
 
 /*# sourceMappingURL=main.css.map */
