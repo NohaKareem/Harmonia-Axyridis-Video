@@ -17,8 +17,8 @@ main {
 }
 
 h1 {
-  margin-top: 5%;
-  margin-bottom: 2.5%;
+  margin-top: 4%;
+  margin-bottom: 2%;
   text-align: center;
   font-size: 3.3rem;
 }
@@ -56,7 +56,7 @@ button {
   height: 40px;
   border: none;
   color: #FDFDEC;
-  margin-top: 35px;
+  margin-top: 50px;
   left: 300px;
   font-family: "Playfair Display SC", serif;
   position: relative;
@@ -87,6 +87,15 @@ button.speed {
 .scrubberCon .scrubberTime {
   color: #FDFDEC;
   text-shadow: 0px 0px 1px #FDFDEC;
+}
+
+.swapVid {
+  margin-top: 2%;
+}
+
+.swapVid:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 /*# sourceMappingURL=main.css.map */

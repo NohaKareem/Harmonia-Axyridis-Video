@@ -7,9 +7,12 @@
 	const STOP_BTN = document.querySelector('.stop');
 	const SCRUB_SLIDER = document.querySelector('.scrubSlider');
 	const SCRUB_MAX = SCRUB_SLIDER.max;
+	const SWAP_VID = document.querySelector('.swapVid p');
 	const TIME_LAPSED = document.querySelector('.scrubberCon span');
 	const PLAY_FA = `<i class="fa fa-play" aria-hidden="true"></i>`;
 	const PAUSE_FA = `<i class="fa fa-pause" aria-hidden="true"></i>`;
+	const VIEW_RENDER_TXT = 'view render';
+	const VIEW_EXPL_TEXT = 'view explode animation';
 	let speed = 1;
 
 	VID.removeAttribute('controls');
@@ -62,6 +65,23 @@
 	// update scrub slider on input 
 	SCRUB_SLIDER.addEventListener('input', e => {
 		VID.currentTime = e.currentTarget.value * VID.duration / SCRUB_MAX;
+	});
+
+	// swap vid
+	SWAP_VID.addEventListener('click', e => {
+		// update menu text
+		let currMenu = e.currentTarget.innerHTML;
+		e.currentTarget.innerHTML = currMenu == VIEW_RENDER_TXT ? VIEW_EXPL_TEXT : VIEW_RENDER_TXT;
+		
+		// update video
+		VID.src = currMenu == VIEW_RENDER_TXT ? "video/render.webm" : "video/vid.webm";
+
+		// stop video
+		stopVid();
+		SCRUB_SLIDER.value = 0;
+
+		// play video
+		VID.play();
 	});
 })();
 

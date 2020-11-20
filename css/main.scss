@@ -25,8 +25,8 @@ main {
 }
 
 h1 {
-    margin-top: 5%;
-    margin-bottom: 2.5%;
+    margin-top: 4%;
+    margin-bottom: 2%;
     text-align: center;
     font-size: 3.3rem;
 }
@@ -68,7 +68,7 @@ button {
     color: $paleParchment;
     // color: $inkyJetChracoal;
     // margin-top: $vidHt * 0.27;
-    margin-top: $vidHt * .07;
+    margin-top: $vidHt * .1;
     left: $vidWid / 2.5;
     font-family: 'Playfair Display SC', serif;
     position: relative;
@@ -97,10 +97,7 @@ button.speed {
 .scrubberCon {
     width: $vidWid * .7;
     margin-left: $vidWid * .15;
-    // margin-top: - $vidHt * .08;
     border-radius: 5%;
-    // margin-top: -$vidHt + $vidHt * 0.3;// / -1.9;
-    // margin-top: -55%;
     display: flex;
     
     input[type=range] {
@@ -111,4 +108,13 @@ button.speed {
         color: $paleParchment;
         text-shadow: 0px 0px 1px $paleParchment;
     }
+}
+
+.swapVid {
+    margin-top: 2%;
+}
+
+.swapVid:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
