@@ -5,8 +5,6 @@
 	const PLAY_BTN = document.querySelector('.play');
 	const SPEED_BTN = document.querySelector('.speed');
 	const STOP_BTN = document.querySelector('.stop');
-	const SCRUBBER_CON = document.querySelector('.scrubberCon');
-	const SCRUBBER = document.querySelector('.scrubberCon div');//~
 	const SCRUB_SLIDER = document.querySelector('.scrubSlider');
 	const SCRUB_MAX = SCRUB_SLIDER.max;
 	const TIME_LAPSED = document.querySelector('.scrubberCon span');
@@ -21,16 +19,6 @@
 	
 	// pad input with leading zero
 	let padZeros = num => { return `${num}`.padStart(2, '0'); }
-
-	// let updateScrubber = _ => {
-	// 	let minutes = Math.floor(VID.currentTime / 60);
-	// 	let seconds = Math.floor(VID.currentTime - minutes * 60);
-	// 	TIME_LAPSED.innerHTML = `${padZeros(minutes)}:${padZeros(seconds)}`;
-
-	// 	// let scrubberConLen = SCRUBBER_CON * (VID.currentTime / VID.duration); //~~
-	// 	// SCRUBBER.style.width = `${scrubberConLen}px`;
-	// 	SCRUB_SLIDER.value = e.currentTarget.max * VID.currentTime / VID.duration;
-	// }
 
 	// toggle play pause 
 	PLAY_BTN.addEventListener('click', _ => {
@@ -62,10 +50,10 @@
 	STOP_BTN.addEventListener('click', stopVid);
 	VID.addEventListener('ended', stopVid);
 
-	// update scrubber time and position~
+	// update scrubber time and position
 	VID.addEventListener('timeupdate', e => {
-		// SCRUB_SLIDER.value = e.currentTarget.max * VID.currentTime / VID.duration;
 		SCRUB_SLIDER.value = (SCRUB_MAX * VID.currentTime) / VID.duration;
+		
 		let minutes = Math.floor(VID.currentTime / 60);
 		let seconds = Math.floor(VID.currentTime - minutes * 60);
 		TIME_LAPSED.innerHTML = `${padZeros(minutes)}:${padZeros(seconds)}`;

@@ -72,6 +72,10 @@ button {
 .scrubberCon input[type=range] {
   width: 100%;
 }
+.scrubberCon .scrubberTime {
+  color: #FDFDEC;
+  text-shadow: 0px 0px 1px #FDFDEC;
+}
 
 button:hover {
   color: #FDFDEC;
