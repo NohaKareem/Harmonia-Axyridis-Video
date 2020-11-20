@@ -1,7 +1,9 @@
 $paleParchment: #FDFDEC;
 $chlorophyllGreen: #04461A; //~
 $inkyJetChracoal: #10061A;
-
+$buttonRad: 3vw;
+$vidWid: 700px;
+$vidHt: 450px; 
 
 .hidden {
 	display: none;
@@ -11,6 +13,7 @@ body {
     background-color: $paleParchment;
     font-family: 'Playfair Display SC', serif;
     color: $inkyJetChracoal;
+    overflow-x: hidden;
 }
 
 main {
@@ -21,50 +24,77 @@ main {
 }
 
 h1 {
+    margin-top: 5%;
     text-align: center;
     font-size: 3.3rem;
 }
 
 video {
     // max-width: 100%;
-    border-radius: 50%;
-    width: 80vh;//800px~
-    height: 80vh;//800px~
+    background-color: darken($chlorophyllGreen, 10);
+    border-radius: 20% 20% 40% 40%;
+    width: $vidWid;//30vw;//800px~//80vh//40
+    height: $vidHt;//15vw;//800px~
     position: relative;
-    top: -10vh; //-100px~
-    // box-shadow: 0px 0px 10px transparentize($inkyJetChracoal, 0.5);
+    margin-top: 5%;
+    // top: -10vh; //-100px~
+    box-shadow: 0px 0px 10px transparentize($inkyJetChracoal, 0.5);
 }
 
 .player { //~
     position: relative;
 }
 
-.controls { 
-    position: absolute;
-
+// .controls { 
+    // position: absolute;
     .controlsRow { //~
+        position: absolute;
+        // background-color: red; //~
     }
-}
+// }
 
-.buttonGrid {
+// .buttonGrid {
+.controls {
+    position: absolute;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     column-gap: 20%;
+    text-align: center;
+    margin-top: -15vh;
+    // left: 12vw; //~11vw
 }
 
 button {
-    font-size: 1.7vw;
+    font-size: 1.3vw; //1.7~
     border-radius: 50%;
-    width: 4vw;//50px~
-    height: 4vw;//50px~
+    width: $buttonRad;//50px~
+    height: $buttonRad;//50px~
     border: none;
     color: $inkyJetChracoal;
-    top: -34vh;
-    left: 60vw;
+    left: $vidWid / 2.5;
+    // top: -10.5vh;
+    // left: 10vw;
+    // top: -34vh;
+    // left: 60vw;
     font-family: 'Playfair Display SC', serif;
     position: relative;
     background-color: $paleParchment;
     box-shadow: 0px 0px 10px transparentize($paleParchment, 0.5);
+}
+
+// .controlsRow {
+//     grid-column: 1 / 4;
+// }
+
+.scrubberCon {
+    width: $vidWid * .7;
+    margin-left: $vidWid * .15;
+    margin-top: - $vidHt * .08;
+    border-radius: 5%;
+    
+    input[type=range] {
+        width: 100%;
+    }
 }
 
 button:hover {
